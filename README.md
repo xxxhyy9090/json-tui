@@ -129,3 +129,11 @@ cargo run -- test_table.json   # array of 15 crates — auto table view
 ## License
 
 MIT
+
+---
+
+Hope this tool helps you! If you have any questions or feedback, feel free to reach out:
+
+📧 **qw061220@outlook.com**
+
+Thanks for your support! (´･ω･`)
