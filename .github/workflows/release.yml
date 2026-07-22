@@ -38,13 +38,19 @@ jobs:
 
       - name: Package (Windows)
         if: matrix.os == 'windows-latest'
+        shell: bash
         run: |
-          7z a json-tui-${{ matrix.target }}.zip ./target/${{ matrix.target }}/release/json-tui${{ matrix.ext }} README.md LICENSE
+          cp README.md LICENSE "target/${{ matrix.target }}/release/"
+          cd "target/${{ matrix.target }}/release"
+          7z a "../../../json-tui-${{ matrix.target }}.zip" "json-tui${{ matrix.ext }}" README.md LICENSE
 
       - name: Package (Unix)
         if: matrix.os != 'windows-latest'
+        shell: bash
         run: |
-          tar -czf json-tui-${{ matrix.target }}.tar.gz -C target/${{ matrix.target }}/release json-tui${{ matrix.ext }} README.md LICENSE
+          cp README.md LICENSE "target/${{ matrix.target }}/release/"
+          cd "target/${{ matrix.target }}/release"
+          tar -czf "../../../json-tui-${{ matrix.target }}.tar.gz" "json-tui${{ matrix.ext }}" README.md LICENSE
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
