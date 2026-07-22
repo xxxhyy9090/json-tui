@@ -51,11 +51,31 @@ cargo build --release
 ## Usage
 
 ```bash
-# Open file picker (scans current directory)
+# Scan current directory for .json files
 json-tui
 
-# Open a specific file directly
+# Scan a specific directory
+json-tui ~/my-configs/
+
+# Open a file directly
 json-tui config.json
+json-tui /path/to/any/file.json
+```
+
+Inside the app, use `:e <path>` to jump to any file or directory without restarting:
+
+```
+:e /home/user/other-project/
+:e /tmp/some-file.json
+```
+
+### Try it locally (with test data)
+
+The repo includes two test files for you to try:
+
+```bash
+cargo run -- test_tree.json    # nested objects & deep structures — tree view
+cargo run -- test_table.json   # array of 15 crates — auto table view
 ```
 
 ### Keybindings
@@ -66,10 +86,11 @@ json-tui config.json
 |-----|--------|
 | `j` / `k` , `↑` / `↓` | Navigate files |
 | `Enter` | Open selected file |
+| `:e <path>` | Open a file or scan a directory |
 | `r` | Refresh file list |
 | `q` | Quit |
 
-#### JSON Viewer
+#### JSON Viewer — Tree & Table
 
 | Key | Action |
 |-----|--------|
@@ -84,9 +105,20 @@ json-tui config.json
 | `n` / `N` | Next / previous search match |
 | `:w` + `Enter` | Save file |
 | `:wq` + `Enter` | Save and return to file picker |
-| `:q` + `Enter` | Return to file picker (discard changes) |
+| `:e <path>` + `Enter` | Open another file / directory |
 | `q` | Return to file picker (prompts if unsaved) |
 | `Esc` | Cancel search / return to file picker |
+
+#### Editing
+
+| Key | Action |
+|-----|--------|
+| Type | Enter new value |
+| `Enter` | Confirm |
+| `Esc` | Cancel |
+| `←` / `→` | Move cursor |
+| `Home` / `End` | Jump to start / end |
+| `Backspace` / `Delete` | Delete character |
 
 ## Dependencies
 
