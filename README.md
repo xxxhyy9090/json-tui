@@ -22,7 +22,7 @@ Inspired by [csvlens](https://github.com/YS-L/csvlens), built with [Ratatui](htt
 
 ### Download binary (no Rust required)
 
-Download the latest binary for your platform from [Releases](https://github.com/qw061/json-tui/releases).
+Download the latest binary for your platform from [Releases](https://github.com/xxxhyy9090/json-tui/releases).
 
 ```bash
 # Linux/macOS
@@ -42,7 +42,7 @@ cargo install json-tui
 ### Build from source
 
 ```bash
-git clone https://github.com/qw061/json-tui.git
+git clone https://github.com/xxxhyy9090/json-tui.git
 cd json-tui
 cargo build --release
 ./target/release/json-tui
