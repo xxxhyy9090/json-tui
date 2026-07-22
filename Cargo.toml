@@ -1,0 +1,16 @@
+[package]
+name = "json-tui"
+version = "0.1.0"
+edition = "2021"
+description = "Terminal JSON viewer & editor — browse, search, and modify JSON files without leaving your terminal"
+repository = "https://github.com/qw061/json-tui"
+license = "MIT"
+keywords = ["json", "tui", "terminal", "viewer", "editor"]
+categories = ["command-line-utilities"]
+
+[dependencies]
+ratatui = "0.30"
+crossterm = "0.29"
+color-eyre = "0.6"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

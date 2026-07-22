@@ -1,0 +1,128 @@
+{
+  "project": "my-tui",
+  "version": "1.0.0",
+  "description": "JSON-TUI 测试数据 —— 包含各种类型和嵌套结构，方便测试所有功能",
+  "author": {
+    "name": "qw061",
+    "email": "dev@example.com",
+    "github": "https://github.com/qw061",
+    "roles": ["developer", "maintainer"]
+  },
+  "settings": {
+    "theme": "dark",
+    "language": "zh-CN",
+    "auto_save": true,
+    "save_interval_ms": 5000,
+    "max_file_size_mb": 100,
+    "backup": {
+      "enabled": true,
+      "max_backups": 10,
+      "directory": "/var/backups/my-tui",
+      "compression": "gzip",
+      "retention": {
+        "daily": 7,
+        "weekly": 4,
+        "monthly": 6
+      }
+    },
+    "network": {
+      "proxy": null,
+      "timeout_seconds": 30,
+      "retry": {
+        "max_attempts": 3,
+        "backoff_ms": 1000,
+        "backoff_multiplier": 2.0
+      },
+      "allowed_hosts": [
+        "api.github.com",
+        "crates.io",
+        "docs.rs",
+        "ratatui.rs"
+      ]
+    }
+  },
+  "dependencies": [
+    { "name": "ratatui", "version": "0.30.2", "license": "MIT", "used_in": ["ui", "widgets"] },
+    { "name": "crossterm", "version": "0.29.0", "license": "MIT", "used_in": ["terminal", "events"] },
+    { "name": "serde", "version": "1.0.229", "license": "MIT OR Apache-2.0", "used_in": ["serialization"] },
+    { "name": "serde_json", "version": "1.0.151", "license": "MIT", "used_in": ["json-parsing"] },
+    { "name": "color-eyre", "version": "0.6.5", "license": "MIT OR Apache-2.0", "used_in": ["error-handling"] },
+    { "name": "tokio", "version": "1.44.0", "license": "MIT", "used_in": ["async-runtime"], "optional": true },
+    { "name": "reqwest", "version": "0.12.0", "license": "MIT OR Apache-2.0", "used_in": ["http-client"], "optional": true }
+  ],
+  "features": {
+    "json_parsing": true,
+    "file_watching": false,
+    "syntax_highlight": true,
+    "auto_format": true,
+    "export_formats": ["json", "yaml", "toml", "csv"],
+    "keyboard_shortcuts": {
+      "quit": "q",
+      "save": "Ctrl+S",
+      "search": "/",
+      "edit": "Enter",
+      "add": "a",
+      "delete": "d",
+      "help": "?"
+    }
+  },
+  "test_data": {
+    "primitives": {
+      "a_string": "Hello, 世界! 🦀",
+      "an_integer": 1234567890,
+      "a_float": 3.141592653589793,
+      "a_negative": -42,
+      "a_true": true,
+      "a_false": false,
+      "a_null": null
+    },
+    "arrays": {
+      "empty_array": [],
+      "numbers": [1, 2, 3, 5, 8, 13, 21, 34, 55, 89],
+      "strings": ["rust", "go", "python", "typescript", "zig", "c", "haskell"],
+      "mixed": [42, "hello", true, null, { "nested": "object" }],
+      "nested_arrays": [[1, 2], [3, 4], [5, 6, [7, 8]]]
+    },
+    "deep_nesting": {
+      "level1": {
+        "level2": {
+          "level3": {
+            "level4": {
+              "level5": {
+                "level6": {
+                  "message": "你找到了最深层的值！",
+                  "depth": 6
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "logs_sample": [
+    { "timestamp": "2026-07-19T10:00:00Z", "level": "INFO", "message": "应用启动", "module": "main" },
+    { "timestamp": "2026-07-19T10:00:01Z", "level": "DEBUG", "message": "加载配置文件", "module": "config" },
+    { "timestamp": "2026-07-19T10:00:02Z", "level": "INFO", "message": "连接数据库", "module": "db", "duration_ms": 150 },
+    { "timestamp": "2026-07-19T10:01:00Z", "level": "WARN", "message": "内存使用率超过 80%", "module": "monitor", "usage_pct": 82.5 },
+    { "timestamp": "2026-07-19T10:02:00Z", "level": "ERROR", "message": "API 请求超时", "module": "api", "endpoint": "/users", "timeout_ms": 30000 },
+    { "timestamp": "2026-07-19T10:03:00Z", "level": "INFO", "message": "用户登录", "module": "auth", "user_id": 1234, "ip": "192.168.1.100" },
+    { "timestamp": "2026-07-19T10:04:00Z", "level": "DEBUG", "message": "缓存清理完成", "module": "cache", "items_removed": 256 },
+    { "timestamp": "2026-07-19T10:05:00Z", "level": "FATAL", "message": "磁盘空间不足", "module": "storage", "available_mb": 10, "required_mb": 100 },
+    { "timestamp": "2026-07-20T08:30:00Z", "level": "INFO", "message": "每日备份开始", "module": "backup" },
+    { "timestamp": "2026-07-20T08:35:00Z", "level": "INFO", "message": "备份完成", "module": "backup", "size_mb": 512, "duration_seconds": 300 },
+    { "timestamp": "2026-07-20T09:00:00Z", "level": "INFO", "message": "版本更新检查", "module": "updater", "current": "1.0.0", "latest": "1.1.0" },
+    { "timestamp": "2026-07-20T09:15:00Z", "level": "WARN", "message": "SSL 证书将在 30 天后过期", "module": "ssl", "domain": "example.com", "days_left": 30 }
+  ],
+  "ui_layouts": {
+    "main_screen": {
+      "panels": [
+        { "name": "sidebar", "position": "left", "width_pct": 25, "min_width": 20 },
+        { "name": "content", "position": "center", "width_pct": 50, "min_width": 40 },
+        { "name": "inspector", "position": "right", "width_pct": 25, "min_width": 20 }
+      ],
+      "status_bar": { "height": 1, "visible": true },
+      "tab_bar": { "height": 1, "visible": true, "tabs": ["文件", "编辑", "查看", "帮助"] }
+    }
+  }
+}

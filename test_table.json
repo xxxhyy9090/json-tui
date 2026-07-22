@@ -1,0 +1,164 @@
+[
+  {
+    "downloads": 2500000,
+    "license": "MIT",
+    "name": "rust-ratatui",
+    "tags": [
+      "tui",
+      "terminal",
+      "rust"
+    ],
+    "version": "0.30.2"
+  },
+  {
+    "downloads": 18000000,
+    "license": "MIT",
+    "name": "crossterm",
+    "tags": [
+      "terminal",
+      "cross-platform"
+    ],
+    "version": "0.29.0"
+  },
+  {
+    "downloads": 120000000,
+    "license": "MIT OR Apache-2.0",
+    "name": "serde",
+    "tags": [
+      "serialization",
+      "json",
+      "derive"
+    ],
+    "version": "1.0.229"
+  },
+  {
+    "downloads": 95000000,
+    "license": "MIT",
+    "name": "tokio",
+    "tags": [
+      "async",
+      "runtime",
+      "networking"
+    ],
+    "version": "1.44.0"
+  },
+  {
+    "downloads": 78000000,
+    "license": "MIT OR Apache-2.0",
+    "name": "reqwest",
+    "tags": [
+      "http",
+      "client",
+      "async"
+    ],
+    "version": "0.12.0"
+  },
+  {
+    "downloads": 65000000,
+    "license": "MIT OR Apache-2.0",
+    "name": "clap",
+    "tags": [
+      "cli",
+      "argument-parser"
+    ],
+    "version": "4.5.0"
+  },
+  {
+    "downloads": 8500000,
+    "license": "MIT OR Apache-2.0",
+    "name": "color-eyre",
+    "tags": [
+      "error-handling",
+      "pretty"
+    ],
+    "version": "0.6.5"
+  },
+  {
+    "downloads": 55000000,
+    "license": "MIT",
+    "name": "tracing",
+    "tags": [
+      "logging",
+      "diagnostics",
+      "async"
+    ],
+    "version": "0.1.41"
+  },
+  {
+    "downloads": 12000000,
+    "license": "MIT OR Apache-2.0",
+    "name": "sqlx",
+    "tags": [
+      "database",
+      "sql",
+      "async"
+    ],
+    "version": "0.8.0"
+  },
+  {
+    "downloads": 15000000,
+    "license": "MIT",
+    "name": "axum",
+    "tags": [
+      "web",
+      "http",
+      "server"
+    ],
+    "version": "0.8.0"
+  },
+  {
+    "downloads": 8500000,
+    "license": "MIT OR Apache-2.0",
+    "name": "egui",
+    "tags": [
+      "gui",
+      "immediate-mode",
+      "wasm"
+    ],
+    "version": "0.31.0"
+  },
+  {
+    "downloads": 6500000,
+    "license": "MIT OR Apache-2.0",
+    "name": "bevy",
+    "tags": [
+      "game-engine",
+      "ecs",
+      "3d"
+    ],
+    "version": "0.15.0"
+  },
+  {
+    "downloads": 3200000,
+    "license": "MIT",
+    "name": "iced",
+    "tags": [
+      "gui",
+      "reactive",
+      "cross-platform"
+    ],
+    "version": "0.13.0"
+  },
+  {
+    "downloads": 9800000,
+    "license": "MIT OR Apache-2.0",
+    "name": "tauri",
+    "tags": [
+      "desktop",
+      "webview",
+      "cross-platform"
+    ],
+    "version": "2.0.0"
+  },
+  {
+    "downloads": 4200000,
+    "license": "MIT OR Apache-2.0",
+    "name": "dioxus",
+    "tags": [
+      "web",
+      "gui",
+      "reactive"
+    ],
+    "version": "0.6.0"
+  }
+]
