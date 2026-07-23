@@ -502,6 +502,11 @@ fn start_edit(app: &mut App) {
         }
         _ => {
             let idx = app.selected;
+            // Prevent editing container nodes (Object/Array)
+            if app.nodes[idx].is_expandable() {
+                app.set_status("Cannot edit Object/Array — expand it and edit a leaf value instead");
+                return;
+            }
             let txt = app.nodes[idx].value_text.clone();
             let clean = unquote(&txt);
             app.edit_state.start_edit_value(idx, &clean);
@@ -539,11 +544,35 @@ fn parse_or_err(app: &mut App) -> Result<serde_json::Value> {
 }
 
 fn rebuild(app: &mut App) {
+    // Save expanded paths before rebuild
+    let expanded: Vec<String> = app.nodes.iter().enumerate()
+        .filter(|(_, n)| n.is_expandable() && n.expanded)
+        .map(|(i, _)| node_path_str(&app.nodes, i))
+        .collect();
+
     app.nodes = build_nodes(&app.root);
+
+    // Restore expanded state for matching paths
+    let to_expand: Vec<usize> = app.nodes.iter().enumerate()
+        .filter(|(i, n)| n.is_expandable() && expanded.contains(&node_path_str(&app.nodes, *i)))
+        .map(|(i, _)| i)
+        .collect();
+    for i in to_expand {
+        app.nodes[i].expanded = true;
+    }
+
     app.table_columns = table_columns(&app.root);
     app.table_rows = build_table_rows(&app.root);
     app.table_friendly = is_table_friendly(&app.root);
     if app.selected >= app.nodes.len() { app.selected = app.nodes.len().saturating_sub(1); }
+}
+
+/// Build a unique path string for a node (e.g. "dependencies.[0].name")
+fn node_path_str(nodes: &[json_tree::JsonNode], idx: usize) -> String {
+    edit::build_path(nodes, idx).iter().map(|s| match s {
+        edit::PathSegment::Key(k) => k.clone(),
+        edit::PathSegment::Index(i) => format!("[{}]", i),
+    }).collect::<Vec<_>>().join(".")
 }
 
 // ================================================================
